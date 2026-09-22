@@ -42,9 +42,9 @@ export default function Hero() {
   }
 
   return (
-    <section aria-label="Rinea jewellery collection" className="relative aspect-[3/4] min-h-[520px] overflow-hidden bg-olive sm:aspect-video sm:min-h-0">
+    <section id="home-hero" aria-label="Rinea jewellery collection" className="relative aspect-[3/4] min-h-[520px] overflow-hidden bg-olive sm:aspect-video sm:min-h-0">
       <div
-        className={`flex h-full ${isTransitioning ? "transition-transform duration-700 ease-in-out motion-reduce:transition-none" : ""}`}
+        className={`absolute inset-0 flex h-full w-full ${isTransitioning ? "transition-transform duration-700 ease-in-out motion-reduce:transition-none" : ""}`}
         style={{ transform: `translateX(-${activeSlide * 100}%)` }}
         onTransitionEnd={handleTransitionEnd}
       >
@@ -75,16 +75,16 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-transparent sm:bg-linear-to-r sm:from-black/25 sm:via-transparent" />
 
       <div className="pointer-events-none absolute inset-0 flex items-end px-6 pb-24 sm:items-center sm:px-12 sm:pb-0 lg:px-20">
-        <div className="max-w-2xl text-paper">
+        <div className="max-w-2xl text-[#F0B78C]">
           <h1 className={`${editorialFont.className} text-6xl leading-[0.9] tracking-[-0.04em] sm:text-8xl lg:text-[7rem]`}>
             Jewellery for every moment
           </h1>
-          <p className="mt-5 max-w-sm font-sans text-sm leading-relaxed text-paper/90 sm:text-base">
+          <p className="mt-5 max-w-sm font-sans text-sm leading-relaxed text-[#F0B78C] sm:text-base">
             Thoughtful pieces made to shine with you, day after day.
           </p>
           <Link
             href="/catalog"
-            className="pointer-events-auto mt-7 inline-block border-b border-paper pb-1 font-sans text-xs uppercase tracking-[0.2em] text-paper transition-colors hover:border-gold hover:text-gold"
+            className="pointer-events-auto mt-7 inline-block border-b border-[#F0B78C] pb-1 font-sans text-xs uppercase tracking-[0.2em] text-[#F0B78C] transition-opacity hover:opacity-70"
           >
             Shop the collection
           </Link>
