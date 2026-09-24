@@ -20,7 +20,7 @@ export default function Hero() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setActiveSlide((current) => (current + 1) % slides.length);
-    }, 4000);
+    }, 3000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section id="home-hero" aria-label="Rinea jewellery collection" className="relative mt-16 h-[calc(100svh-4rem)] min-h-[520px] overflow-hidden bg-olive sm:mt-24 sm:h-[calc(100svh-6rem)] sm:min-h-0 lg:mt-0 lg:h-auto lg:aspect-video">
       <div
-        className="absolute inset-0 flex h-full w-full transition-transform duration-600 ease-in-out motion-reduce:transition-none"
+        className="absolute inset-0 flex h-full w-full transition-transform duration-500 ease-in-out motion-reduce:transition-none"
         style={{ transform: `translateX(-${activeSlide * 100}%)` }}
       >
         {slides.map((slide, index) => (

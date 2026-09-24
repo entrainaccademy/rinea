@@ -20,7 +20,7 @@ export default function AddToCartButton({ productSlug }) {
         addItem(productSlug);
         setIsAdded(true);
       }}
-      className="bg-olive px-8 py-4 text-center text-lg font-semibold text-paper transition-colors hover:bg-gold hover:text-olive"
+      className="border border-gold bg-gold px-6 py-3 text-center font-sans text-xs font-bold uppercase tracking-[0.14em] text-olive transition-colors hover:border-olive hover:bg-olive hover:text-paper sm:px-8 sm:py-4 sm:text-sm"
     >
       {isAdded ? "Added to cart ✓" : "Add to cart"}
     </button>

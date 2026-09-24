@@ -48,23 +48,23 @@ export default async function ProductPage({ params }) {
           </div>
 
           <div className="flex flex-col justify-center bg-paper px-3 py-8 sm:p-12 lg:p-16">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#754C15] sm:mb-4 sm:text-sm sm:tracking-[0.2em]">
+            <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#754C15] sm:mb-4 sm:text-sm sm:tracking-[0.2em]">
               {product.category.replace("-", " ")}
             </p>
-            <h1 className="text-3xl font-semibold leading-none text-olive sm:text-5xl">
+            <h1 className="text-2xl font-semibold leading-tight text-olive sm:text-5xl sm:leading-none">
               {product.name}
             </h1>
-            <p className="mt-4 text-2xl font-semibold text-[#79531D] sm:mt-6 sm:text-3xl">{product.price}</p>
+            <p className="mt-3 text-xl font-semibold text-[#79531D] sm:mt-6 sm:text-3xl">{product.price}</p>
 
             <div className="mt-6 lg:hidden">
               <AddToCartButton productSlug={product.slug} />
             </div>
 
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-olive/85 sm:mt-8 sm:text-xl">
+            <p className="mt-5 max-w-xl text-base font-medium leading-relaxed text-olive/90 sm:mt-8 sm:text-xl">
               {product.description}
             </p>
 
-            <div className="mt-5 flex items-center gap-3 border-y border-olive/15 py-3 text-base font-semibold text-olive sm:mt-6 sm:text-lg">
+            <div className="mt-5 flex items-center gap-2.5 border-y border-olive/15 py-3 text-sm font-semibold text-olive sm:mt-6 sm:gap-3 sm:text-lg">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 shrink-0 text-[#79531D]" aria-hidden="true">
                 <path d="M3 7h11v10H3zM14 10h3l4 4v3h-7z" strokeWidth="1.4" strokeLinejoin="round" />
                 <circle cx="7" cy="19" r="1.5" strokeWidth="1.4" />
@@ -75,7 +75,7 @@ export default async function ProductPage({ params }) {
 
             <ul className="mt-7 grid grid-cols-2 border-l border-t border-olive/15 sm:mt-10">
               {qualities.map((quality) => (
-                <li key={quality} className="border-b border-r border-olive/15 p-3 text-base text-olive sm:p-4 sm:text-lg">
+                <li key={quality} className="border-b border-r border-olive/15 p-3 text-sm font-medium text-olive sm:p-4 sm:text-lg">
                   {quality}
                 </li>
               ))}
@@ -87,7 +87,7 @@ export default async function ProductPage({ params }) {
               </div>
               <Link
                 href="/catalog"
-                className="border border-olive/20 bg-[#EFE8DC] px-8 py-4 text-center text-lg font-semibold text-olive transition-colors hover:border-[#79531D] hover:bg-[#E2BE75]"
+                className="self-start border border-olive bg-olive/[0.06] px-6 py-3 text-center font-sans text-xs font-bold uppercase tracking-[0.12em] text-olive transition-colors hover:bg-olive hover:text-paper sm:px-8 sm:py-4 sm:text-sm"
               >
                 Continue shopping
               </Link>
