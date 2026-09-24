@@ -37,7 +37,7 @@ export default function Header() {
   const hasSolidHeader = isScrolled || isCollectionOpen || isDesktopCollectionOpen;
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-linear-to-b lg:from-black/35 lg:to-transparent lg:shadow-none"}`}>
+    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-transparent lg:shadow-none"}`}>
       <Link href="/">
         <span className="relative ml-2 block h-[45px] w-[110px] overflow-hidden lg:hidden">
           <Image
@@ -168,33 +168,36 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        className={`absolute inset-x-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-olive/10 bg-paper px-6 text-olive shadow-xl transition-all duration-200 lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
+        className={`absolute inset-x-0 top-full flex h-[calc(100svh-5rem)] flex-col overflow-y-auto border-t border-olive/10 bg-paper px-5 text-olive shadow-xl transition-all duration-200 sm:h-[calc(100svh-6rem)] lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
       >
-        <div className="grid grid-cols-2 border-b border-olive/15 py-3">
-          <Link href="/" onClick={() => setIsCollectionOpen(false)} className="py-3 font-serif text-xl">Home</Link>
-          <Link href="/contact" onClick={() => setIsCollectionOpen(false)} className="py-3 text-right font-serif text-xl">Contact</Link>
+        <div className="grid grid-cols-3 border-b border-olive/15 py-3 text-center">
+          <Link href="/" onClick={() => setIsCollectionOpen(false)} className="py-2 font-serif text-lg">Home</Link>
+          <Link href="/contact" onClick={() => setIsCollectionOpen(false)} className="border-x border-olive/15 py-2 font-serif text-lg">Contact</Link>
+          <Link href="/account" onClick={() => setIsCollectionOpen(false)} className="py-2 font-serif text-lg">Profile</Link>
         </div>
         <div className="flex items-center justify-between border-b border-olive/15 py-4">
-          <p className="font-serif text-2xl">Collection</p>
+          <p className="font-serif text-2xl font-semibold">Collection</p>
           <Link href="/catalog" onClick={() => setIsCollectionOpen(false)} className="font-semibold text-xs uppercase tracking-[0.14em] text-[#754C15]">
             View all
           </Link>
         </div>
-        <div className="grid grid-cols-2 gap-x-7 py-2">
+        <div className="grid grid-cols-3 border-b border-olive/15 py-2">
           {categories.map((category) => (
             <Link
               key={category.slug}
               href={`/catalog?category=${category.slug}`}
               onClick={() => setIsCollectionOpen(false)}
-              className="border-b border-olive/10 py-3 font-serif text-lg"
+              className="flex min-h-16 items-center justify-center border-b border-r border-olive/10 px-2 py-3 text-center font-serif text-base leading-tight [&:nth-child(3n)]:border-r-0"
             >
               {category.label}
             </Link>
           ))}
         </div>
-        <div className="grid grid-cols-2 border-t border-olive/15 py-3">
-          <Link href="/cart" onClick={() => setIsCollectionOpen(false)} className="py-3 font-serif text-xl">Cart ({itemCount})</Link>
-          <Link href="/account" onClick={() => setIsCollectionOpen(false)} className="py-3 text-right font-serif text-xl">Profile</Link>
+        <div className="mt-auto py-5">
+          <Link href="/cart" onClick={() => setIsCollectionOpen(false)} className="flex items-center justify-between bg-olive px-5 py-4 font-serif text-xl text-paper">
+            <span>Shopping cart</span>
+            <span>{itemCount} {itemCount === 1 ? "item" : "items"}</span>
+          </Link>
         </div>
       </div>
     </header>

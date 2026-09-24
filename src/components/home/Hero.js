@@ -67,7 +67,7 @@ export default function Hero() {
             Thoughtful pieces made to shine with you, day after day.
           </p>
           <Link
-            href="/catalog"
+            href="#shop-by-category"
             className="pointer-events-auto mt-7 inline-block border-b border-[#E8D3A2] pb-1 font-sans text-xs uppercase tracking-[0.2em] text-[#E8D3A2] transition-opacity hover:opacity-70"
           >
             Shop the collection
