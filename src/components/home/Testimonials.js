@@ -18,9 +18,9 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-paper px-4 py-20 sm:px-10 sm:py-28">
+    <section className="bg-paper px-4 py-14 sm:px-10 sm:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 text-center sm:mb-16">
+        <div className="mb-8 text-center sm:mb-16">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.25em] text-[#754C15]">
             Customer stories
           </p>
@@ -33,21 +33,21 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <figure
               key={testimonial.name}
-              className="flex min-h-72 flex-col justify-between border border-olive/15 bg-[#EEE9DD] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_18px_45px_rgba(74,78,42,0.10)] sm:p-8"
+              className="flex min-h-0 flex-col justify-between border border-olive/15 bg-[#EEE9DD] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-gold/60 hover:shadow-[0_18px_45px_rgba(74,78,42,0.10)] sm:min-h-72 sm:p-8"
             >
               <div>
-                <div className="mb-6 flex items-start justify-between">
+                <div className="mb-4 flex items-start justify-between sm:mb-6">
                   <span className="text-sm tracking-widest text-[#A8782D]" aria-label="5 out of 5 stars">
                     ★★★★★
                   </span>
-                  <span className="text-5xl leading-none text-gold/45">“</span>
+                  <span className="text-4xl leading-none text-gold/60 sm:text-5xl">“</span>
                 </div>
-                <blockquote className="text-xl leading-relaxed text-[#303318] sm:text-2xl">
+                <blockquote className="text-lg leading-relaxed text-[#303318] sm:text-2xl">
                   {testimonial.quote}
                 </blockquote>
               </div>
-              <figcaption className="mt-10 border-t border-olive/10 pt-5">
-                <p className="text-lg font-semibold text-[#303318]">{testimonial.name}</p>
+              <figcaption className="mt-6 border-t border-olive/10 pt-4 sm:mt-10 sm:pt-5">
+                <p className="text-base font-semibold text-[#303318] sm:text-lg">{testimonial.name}</p>
                 <p className="mt-1 text-sm text-olive/75">{testimonial.product}</p>
               </figcaption>
             </figure>

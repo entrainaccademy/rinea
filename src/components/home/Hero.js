@@ -63,7 +63,7 @@ export default function Hero() {
             <span className="block">Jewellery for</span>
             <span className="block whitespace-nowrap">every moment</span>
           </h1>
-          <p className="mt-5 max-w-sm font-sans text-sm leading-relaxed text-[#E8D3A2] sm:text-base">
+          <p className="mt-5 hidden max-w-sm font-sans text-sm leading-relaxed text-[#E8D3A2] sm:block sm:text-base">
             Thoughtful pieces made to shine with you, day after day.
           </p>
           <Link

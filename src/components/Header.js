@@ -45,13 +45,13 @@ export default function Header() {
             alt="Rinea"
             width={702}
             height={449}
-            className="h-32 w-auto sm:h-40"
+            className="h-20 w-auto lg:h-40"
           />
         ) : (
           <span
             role="img"
             aria-label="Rinea"
-            className="block h-32 w-[200px] bg-gold sm:h-40 sm:w-[250px]"
+            className="block h-20 w-[140px] bg-gold lg:h-40 lg:w-[250px]"
             style={{
               maskImage: "url('/rinea-transparent.png')",
               WebkitMaskImage: "url('/rinea-transparent.png')",
@@ -121,19 +121,6 @@ export default function Header() {
           <Link href="/contact" className="transition-opacity hover:opacity-65">Contact</Link>
         </div>
 
-        <button
-          type="button"
-          aria-expanded={isCollectionOpen}
-          aria-controls="mobile-collection-menu"
-          onClick={() => setIsCollectionOpen((open) => !open)}
-          className="flex items-center gap-1 py-2 text-xs uppercase tracking-[0.12em] lg:hidden"
-        >
-          Collection
-          <svg viewBox="0 0 12 12" fill="none" className={`h-3 w-3 transition-transform ${isCollectionOpen ? "rotate-180" : ""}`}>
-            <path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </button>
-
         <Link href="/cart" aria-label={`Cart with ${itemCount} items`} className="relative p-1 transition-opacity hover:opacity-65">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 sm:h-6 sm:w-6">
             <path d="M3 4h2l2.2 10.2a2 2 0 002 1.6h7.9a2 2 0 001.9-1.4L21 8H7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -147,20 +134,39 @@ export default function Header() {
           )}
         </Link>
 
-        <Link href="/account" aria-label="Profile" className="p-1 transition-opacity hover:opacity-65">
+        <Link href="/account" aria-label="Profile" className="hidden p-1 transition-opacity hover:opacity-65 lg:block">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 sm:h-6 sm:w-6">
             <circle cx="12" cy="8" r="3.5" strokeWidth="1.5" />
             <path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
         </Link>
+
+        <button
+          type="button"
+          aria-expanded={isCollectionOpen}
+          aria-controls="mobile-navigation"
+          aria-label={isCollectionOpen ? "Close menu" : "Open menu"}
+          onClick={() => setIsCollectionOpen((open) => !open)}
+          className="flex h-10 w-10 items-center justify-center lg:hidden"
+        >
+          <span className="relative block h-4 w-6">
+            <span className={`absolute left-0 top-0 h-px w-6 bg-current transition-transform ${isCollectionOpen ? "translate-y-[7px] rotate-45" : ""}`} />
+            <span className={`absolute left-0 top-[7px] h-px w-6 bg-current transition-opacity ${isCollectionOpen ? "opacity-0" : ""}`} />
+            <span className={`absolute left-0 top-[14px] h-px w-6 bg-current transition-transform ${isCollectionOpen ? "-translate-y-[7px] -rotate-45" : ""}`} />
+          </span>
+        </button>
       </nav>
 
       <div
-        id="mobile-collection-menu"
-        className={`absolute inset-x-0 top-full border-t border-olive/10 bg-paper px-6 text-olive shadow-xl transition-all duration-200 lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
+        id="mobile-navigation"
+        className={`absolute inset-x-0 top-full max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-olive/10 bg-paper px-6 text-olive shadow-xl transition-all duration-200 lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
       >
+        <div className="grid grid-cols-2 border-b border-olive/15 py-3">
+          <Link href="/" onClick={() => setIsCollectionOpen(false)} className="py-3 font-serif text-xl">Home</Link>
+          <Link href="/contact" onClick={() => setIsCollectionOpen(false)} className="py-3 text-right font-serif text-xl">Contact</Link>
+        </div>
         <div className="flex items-center justify-between border-b border-olive/15 py-4">
-          <p className="font-serif text-xl">Collections</p>
+          <p className="font-serif text-2xl">Collection</p>
           <Link href="/catalog" onClick={() => setIsCollectionOpen(false)} className="font-semibold text-xs uppercase tracking-[0.14em] text-[#754C15]">
             View all
           </Link>
@@ -176,6 +182,10 @@ export default function Header() {
               {category.label}
             </Link>
           ))}
+        </div>
+        <div className="grid grid-cols-2 border-t border-olive/15 py-3">
+          <Link href="/cart" onClick={() => setIsCollectionOpen(false)} className="py-3 font-serif text-xl">Cart ({itemCount})</Link>
+          <Link href="/account" onClick={() => setIsCollectionOpen(false)} className="py-3 text-right font-serif text-xl">Profile</Link>
         </div>
       </div>
     </header>

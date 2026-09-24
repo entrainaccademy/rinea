@@ -21,14 +21,14 @@ export default async function CatalogPage({ searchParams }) {
     <main className="post-hero min-h-screen bg-[#EFE8DC] pt-24 sm:pt-28">
       <section className="px-4 pb-24 pt-16 sm:px-10 sm:pt-20">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-12 max-w-2xl sm:mb-16">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#754C15]">
+          <div className="mb-9 max-w-2xl sm:mb-16">
+            <p className="mb-3 hidden text-sm font-semibold uppercase tracking-[0.25em] text-[#754C15] sm:block">
               The collection
             </p>
             <h1 className="text-5xl font-semibold leading-none text-olive sm:text-7xl">
               {activeLabel || "Find your next favourite"}
             </h1>
-            <p className="mt-5 text-lg leading-relaxed text-olive/85">
+            <p className="mt-5 hidden text-lg leading-relaxed text-olive/85 sm:block">
               Everyday jewellery with thoughtful details, lasting shine, and prices made to feel good.
             </p>
           </div>
