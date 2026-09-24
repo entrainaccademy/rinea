@@ -44,7 +44,7 @@ export default function Header() {
           alt="Rinea"
           width={702}
           height={449}
-          className="h-20 w-auto lg:hidden"
+          className="-ml-8 h-20 w-auto lg:hidden"
         />
         {hasSolidHeader ? (
           <Image
