@@ -39,13 +39,15 @@ export default function Header() {
   return (
     <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-linear-to-b lg:from-black/35 lg:to-transparent lg:shadow-none"}`}>
       <Link href="/">
-        <Image
-          src="/rinea-transparent.png"
-          alt="Rinea"
-          width={702}
-          height={449}
-          className="-ml-8 h-20 w-auto lg:hidden"
-        />
+        <span className="relative ml-2 block h-[45px] w-[110px] overflow-hidden lg:hidden">
+          <Image
+            src="/rinea-transparent.png"
+            alt="Rinea"
+            width={702}
+            height={449}
+            className="absolute -left-[47px] -top-10 h-32 w-[200px] max-w-none"
+          />
+        </span>
         {hasSolidHeader ? (
           <Image
             src="/rinea-transparent.png"
