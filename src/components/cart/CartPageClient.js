@@ -53,9 +53,9 @@ export default function CartPageClient() {
         <div className="mb-7 flex items-end justify-between border-b border-olive/15 pb-5">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.24em] text-[#754C15]">Your selection</p>
-            <h1 className="mt-2 text-5xl font-semibold text-olive sm:text-6xl">Shopping cart</h1>
+            <h1 className="mt-2 text-3xl font-semibold text-olive sm:text-5xl">Shopping cart</h1>
           </div>
-          <p className="hidden text-lg font-semibold text-olive sm:block">{itemCount} {itemCount === 1 ? "item" : "items"}</p>
+          <p className="pb-1 text-sm font-semibold text-[#754C15] sm:pb-0 sm:text-lg sm:text-olive">{itemCount} {itemCount === 1 ? "item" : "items"}</p>
         </div>
 
         <div className="divide-y divide-olive/15">
@@ -67,7 +67,7 @@ export default function CartPageClient() {
 
               <div className="min-w-0 py-1">
                 <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[#69400F]">{product.category.replace("-", " ")}</p>
-                <Link href={`/product/${product.slug}`} className="mt-2 block font-serif text-2xl font-semibold text-olive hover:text-[#79531D]">
+                <Link href={`/product/${product.slug}`} className="mt-2 block font-serif text-xl font-semibold text-olive hover:text-[#79531D] sm:text-2xl">
                   {product.name}
                 </Link>
                 <p className="mt-2 text-lg font-semibold text-[#79531D] sm:hidden">{product.price}</p>
@@ -103,7 +103,7 @@ export default function CartPageClient() {
         <button type="button" disabled className="mt-7 w-full cursor-not-allowed bg-[#E2BE75] px-6 py-4 text-lg font-semibold text-olive">
           Checkout coming soon
         </button>
-        <Link href="/catalog" className="mt-5 block text-center text-sm font-semibold uppercase tracking-[0.14em] text-paper hover:text-[#F0CB7F]">
+        <Link href="/catalog" className="mt-5 block border border-gold/70 bg-olive px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-olive">
           Continue shopping
         </Link>
       </aside>

@@ -51,7 +51,7 @@ export default async function ProductPage({ params }) {
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#754C15] sm:mb-4 sm:text-sm sm:tracking-[0.2em]">
               {product.category.replace("-", " ")}
             </p>
-            <h1 className="text-4xl font-semibold leading-none text-olive sm:text-6xl">
+            <h1 className="text-3xl font-semibold leading-none text-olive sm:text-5xl">
               {product.name}
             </h1>
             <p className="mt-4 text-2xl font-semibold text-[#79531D] sm:mt-6 sm:text-3xl">{product.price}</p>
@@ -87,7 +87,7 @@ export default async function ProductPage({ params }) {
               </div>
               <Link
                 href="/catalog"
-                className="border border-olive/25 px-8 py-4 text-center text-lg text-olive transition-colors hover:border-olive"
+                className="border border-olive/20 bg-[#EFE8DC] px-8 py-4 text-center text-lg font-semibold text-olive transition-colors hover:border-[#79531D] hover:bg-[#E2BE75]"
               >
                 Continue shopping
               </Link>

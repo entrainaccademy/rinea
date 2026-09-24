@@ -188,16 +188,6 @@ export default function Header() {
           >
             Home
           </Link>
-          <Link
-            href="/contact"
-            onClick={() => {
-              setIsCollectionOpen(false);
-              setIsMobileCollectionOpen(false);
-            }}
-            className="block border-b border-olive/10 py-4 font-serif text-2xl"
-          >
-            Contact
-          </Link>
           <button
             type="button"
             aria-expanded={isMobileCollectionOpen}
@@ -244,6 +234,16 @@ export default function Header() {
             </div>
           </div>
         )}
+        <Link
+          href="/contact"
+          onClick={() => {
+            setIsCollectionOpen(false);
+            setIsMobileCollectionOpen(false);
+          }}
+          className="block border-b border-olive/15 py-4 font-serif text-2xl"
+        >
+          Contact
+        </Link>
         <div className="mt-auto py-5">
           <Link href="/cart" onClick={() => setIsCollectionOpen(false)} className="flex items-center justify-between bg-olive px-5 py-4 font-serif text-xl text-paper">
             <span>Shopping cart</span>

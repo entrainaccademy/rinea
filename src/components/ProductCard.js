@@ -18,7 +18,7 @@ export default function ProductCard({ product }) {
       </div>
       <div className="flex items-start justify-between gap-3 border-b border-olive/10 pb-4">
         <div className="min-w-0">
-          <h3 className="truncate text-xl font-semibold text-olive sm:text-2xl">
+          <h3 className="truncate text-lg font-semibold text-olive sm:text-xl">
             {product.name}
           </h3>
         </div>
