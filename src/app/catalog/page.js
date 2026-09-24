@@ -18,10 +18,10 @@ export default async function CatalogPage({ searchParams }) {
   const activeLabel = categories.find((item) => item.slug === activeCategory)?.label;
 
   return (
-    <main className="post-hero min-h-screen bg-[#EFE8DC] pt-20 sm:pt-28">
-      <section className="px-4 pb-24 pt-8 sm:px-10 sm:pt-20">
+    <main className="post-hero min-h-screen bg-[#EFE8DC] pt-20 sm:pt-24">
+      <section className="px-4 pb-24 pt-8 sm:px-10 sm:pt-10">
         <div className="mx-auto max-w-7xl">
-          <div className="mb-9 max-w-2xl sm:mb-16">
+          <div className="mb-9 max-w-2xl sm:mb-10">
             <p className="mb-3 hidden text-sm font-semibold uppercase tracking-[0.25em] text-[#754C15] sm:block">
               The collection
             </p>
