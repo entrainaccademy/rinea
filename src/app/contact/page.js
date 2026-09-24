@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function ContactPage() {
   return (
-    <main className="post-hero min-h-screen bg-paper pt-24">
+    <main className="post-hero min-h-screen bg-paper pt-16 sm:pt-24">
       <section className="px-5 py-16 sm:px-10 sm:py-24">
         <div className="mx-auto grid max-w-7xl overflow-hidden border border-olive/15 bg-[#EEE9DD] lg:grid-cols-[0.85fr_1.15fr]">
           <div className="flex flex-col justify-between bg-olive p-8 text-paper sm:p-12 lg:min-h-[720px] lg:p-16">

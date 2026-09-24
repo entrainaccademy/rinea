@@ -3,7 +3,7 @@ import Footer from "@/components/Footer";
 
 export default function InfoPage({ eyebrow, title, intro, sections }) {
   return (
-    <main className="post-hero min-h-screen bg-paper pt-20 sm:pt-24">
+    <main className="post-hero min-h-screen bg-paper pt-16 sm:pt-24">
       <section className="px-5 py-12 sm:px-10 sm:py-20">
         <div className="mx-auto max-w-5xl">
           <div className="border-b border-olive/15 pb-10 sm:pb-14">

@@ -41,7 +41,7 @@ export default function Header() {
   const hasSolidHeader = isScrolled || isCollectionOpen || isDesktopCollectionOpen;
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-transparent lg:shadow-none"}`}>
+    <header className={`fixed inset-x-0 top-0 z-20 flex h-16 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-transparent lg:shadow-none"}`}>
       <Link href="/">
         <span className="relative ml-2 block h-[45px] w-[110px] overflow-hidden lg:hidden">
           <Image
@@ -175,7 +175,7 @@ export default function Header() {
 
       <div
         id="mobile-navigation"
-        className={`absolute inset-x-0 top-full flex h-[calc(100svh-5rem)] flex-col overflow-y-auto border-t border-olive/10 bg-paper px-5 text-olive shadow-xl transition-all duration-200 sm:h-[calc(100svh-6rem)] lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
+        className={`absolute inset-x-0 top-full flex h-[calc(100svh-4rem)] flex-col overflow-y-auto border-t border-olive/10 bg-paper px-5 text-olive shadow-xl transition-all duration-200 sm:h-[calc(100svh-6rem)] lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
       >
         <div className="border-b border-olive/15 py-2">
           <Link

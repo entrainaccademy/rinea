@@ -29,7 +29,7 @@ export default function CategoryTiles() {
   const homeCategories = categories.filter((category) => category.showOnHome !== false);
 
   return (
-    <section id="shop-by-category" className="flex scroll-mt-20 flex-col gap-10 overflow-hidden bg-olive/[0.03] pb-16 pt-24 sm:scroll-mt-24 sm:pb-20 sm:pt-28">
+    <section id="shop-by-category" className="flex scroll-mt-16 flex-col gap-10 overflow-hidden bg-olive/[0.03] pb-16 pt-24 sm:scroll-mt-24 sm:pb-20 sm:pt-28">
       <div className="px-6 text-center sm:px-10">
         <p className="mb-2 font-sans text-xs font-semibold uppercase tracking-[0.28em] text-[#754C15]">
           Find your piece

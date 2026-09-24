@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function CartPage() {
   return (
-    <main className="post-hero min-h-screen bg-paper pt-24">
+    <main className="post-hero min-h-screen bg-paper pt-16 sm:pt-24">
       <section className="px-4 py-16 sm:px-10 sm:py-24">
         <div className="mx-auto max-w-7xl">
           <CartPageClient />

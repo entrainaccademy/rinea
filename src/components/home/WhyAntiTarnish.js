@@ -12,7 +12,7 @@ const benefits = [
 
 export default function WhyAntiTarnish() {
   return (
-    <section id="materials" className="grid scroll-mt-20 bg-olive sm:scroll-mt-24 lg:grid-cols-2">
+    <section id="materials" className="grid scroll-mt-16 bg-olive sm:scroll-mt-24 lg:grid-cols-2">
       <div className="relative aspect-[4/3] min-h-[300px] overflow-hidden sm:aspect-[4/5] sm:min-h-[480px] lg:aspect-auto lg:min-h-[760px]">
         <Image
           src="/images/reference5.png"

@@ -27,7 +27,7 @@ export default async function ProductPage({ params }) {
   const relatedProducts = [...sameCategoryProducts, ...otherProducts].slice(0, 4);
 
   return (
-    <main className="post-hero min-h-screen bg-paper pt-20 sm:pt-28">
+    <main className="post-hero min-h-screen bg-paper pt-16 sm:pt-28">
       <section className="px-4 pb-10 pt-4 sm:px-10 sm:py-24">
         <div className="mx-auto grid max-w-6xl overflow-hidden sm:border sm:border-olive/15 sm:bg-[#ebe5d9] lg:grid-cols-2">
           <div className="relative mx-auto aspect-[4/5] w-[88%] overflow-hidden sm:min-h-[620px] sm:w-full lg:aspect-auto lg:min-h-[720px]">
