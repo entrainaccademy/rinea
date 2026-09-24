@@ -26,7 +26,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="home-hero" aria-label="Rinea jewellery collection" className="relative aspect-[3/4] min-h-[520px] overflow-hidden bg-olive sm:aspect-video sm:min-h-0">
+    <section id="home-hero" aria-label="Rinea jewellery collection" className="relative mt-20 h-[calc(100svh-5rem)] min-h-[520px] overflow-hidden bg-olive sm:mt-24 sm:h-[calc(100svh-6rem)] sm:min-h-0 lg:mt-0 lg:h-auto lg:aspect-video">
       <div
         className="absolute inset-0 flex h-full w-full transition-transform duration-700 ease-in-out motion-reduce:transition-none"
         style={{ transform: `translateX(-${activeSlide * 100}%)` }}

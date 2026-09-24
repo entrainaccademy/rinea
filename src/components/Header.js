@@ -37,21 +37,28 @@ export default function Header() {
   const hasSolidHeader = isScrolled || isCollectionOpen || isDesktopCollectionOpen;
 
   return (
-    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between px-6 transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "border-b border-olive/10 bg-paper shadow-sm" : "bg-linear-to-b from-black/35 to-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between border-b border-olive/10 bg-paper px-5 shadow-sm transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "lg:bg-paper" : "lg:border-transparent lg:bg-linear-to-b lg:from-black/35 lg:to-transparent lg:shadow-none"}`}>
       <Link href="/">
+        <Image
+          src="/rinea-transparent.png"
+          alt="Rinea"
+          width={702}
+          height={449}
+          className="h-20 w-auto lg:hidden"
+        />
         {hasSolidHeader ? (
           <Image
             src="/rinea-transparent.png"
             alt="Rinea"
             width={702}
             height={449}
-            className="h-20 w-auto lg:h-40"
+            className="hidden h-40 w-auto lg:block"
           />
         ) : (
           <span
             role="img"
             aria-label="Rinea"
-            className="block h-20 w-[140px] bg-gold lg:h-40 lg:w-[250px]"
+            className="hidden h-40 w-[250px] bg-gold lg:block"
             style={{
               maskImage: "url('/rinea-transparent.png')",
               WebkitMaskImage: "url('/rinea-transparent.png')",
@@ -65,7 +72,7 @@ export default function Header() {
           />
         )}
       </Link>
-      <nav className={`flex items-center gap-3 font-sans text-sm tracking-wide sm:gap-5 lg:gap-7 ${hasSolidHeader ? "text-olive" : "text-gold"}`}>
+      <nav className={`flex items-center gap-3 font-sans text-sm tracking-wide text-olive sm:gap-5 lg:gap-7 ${hasSolidHeader ? "lg:text-olive" : "lg:text-gold"}`}>
         <div className="hidden items-center gap-8 lg:flex">
           <Link href="/" className="transition-opacity hover:opacity-65">Home</Link>
           <div
