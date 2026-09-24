@@ -3,11 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-
-const navItems = ["Shop", "Collections", "About", "Contact"];
+import { categories } from "@/lib/placeholder-data";
+import { useCart } from "@/components/cart/CartProvider";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isCollectionOpen, setIsCollectionOpen] = useState(false);
+  const [isDesktopCollectionOpen, setIsDesktopCollectionOpen] = useState(false);
+  const { itemCount } = useCart();
 
   useEffect(() => {
     const updateScroll = () => {
@@ -23,10 +26,20 @@ export default function Header() {
     };
   }, []);
 
+  useEffect(() => {
+    const closeOnEscape = (event) => {
+      if (event.key === "Escape") setIsCollectionOpen(false);
+    };
+    window.addEventListener("keydown", closeOnEscape);
+    return () => window.removeEventListener("keydown", closeOnEscape);
+  }, []);
+
+  const hasSolidHeader = isScrolled || isCollectionOpen || isDesktopCollectionOpen;
+
   return (
-    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between px-6 transition-colors duration-300 sm:h-24 sm:px-10 ${isScrolled ? "border-b border-olive/10 bg-paper shadow-sm" : "bg-linear-to-b from-black/35 to-transparent"}`}>
+    <header className={`fixed inset-x-0 top-0 z-20 flex h-20 items-center justify-between px-6 transition-colors duration-300 sm:h-24 sm:px-10 ${hasSolidHeader ? "border-b border-olive/10 bg-paper shadow-sm" : "bg-linear-to-b from-black/35 to-transparent"}`}>
       <Link href="/">
-        {isScrolled ? (
+        {hasSolidHeader ? (
           <Image
             src="/rinea-transparent.png"
             alt="Rinea"
@@ -52,13 +65,119 @@ export default function Header() {
           />
         )}
       </Link>
-      <nav className={`hidden gap-8 font-sans text-sm tracking-wide sm:flex ${isScrolled ? "text-olive" : "text-gold"}`}>
-        {navItems.map((item) => (
-          <span key={item} className="cursor-default">
-            {item}
-          </span>
-        ))}
+      <nav className={`flex items-center gap-3 font-sans text-sm tracking-wide sm:gap-5 lg:gap-7 ${hasSolidHeader ? "text-olive" : "text-gold"}`}>
+        <div className="hidden items-center gap-8 lg:flex">
+          <Link href="/" className="transition-opacity hover:opacity-65">Home</Link>
+          <div
+            className="py-9"
+            onMouseEnter={() => setIsDesktopCollectionOpen(true)}
+            onMouseLeave={() => setIsDesktopCollectionOpen(false)}
+            onFocus={() => setIsDesktopCollectionOpen(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) {
+                setIsDesktopCollectionOpen(false);
+              }
+            }}
+          >
+            <Link href="/catalog" className="flex items-center gap-1.5 transition-opacity hover:opacity-65">
+              Collection
+              <svg viewBox="0 0 12 12" fill="none" className={`h-3 w-3 transition-transform ${isDesktopCollectionOpen ? "rotate-180" : ""}`}>
+                <path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+
+            <div
+              className={`fixed inset-x-0 top-24 border-y border-olive/10 bg-paper text-olive shadow-[0_18px_45px_rgba(37,40,21,0.12)] transition-all duration-300 ${isDesktopCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
+            >
+              <div className="mx-auto grid max-w-7xl grid-cols-[0.8fr_2.2fr] gap-14 px-10 py-10 xl:px-4">
+                <div className="border-r border-olive/15 pr-12">
+                  <p className="mb-3 font-semibold text-xs uppercase tracking-[0.24em] text-[#754C15]">Our collection</p>
+                  <p className="font-serif text-4xl leading-tight">Find your everyday piece</p>
+                  <Link
+                    href="/catalog"
+                    onClick={() => setIsDesktopCollectionOpen(false)}
+                    className="mt-7 inline-block border-b border-[#754C15] pb-1 font-semibold text-xs uppercase tracking-[0.18em] text-[#754C15] transition-colors hover:border-olive hover:text-olive"
+                  >
+                    View all pieces
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-3 gap-x-10">
+                  {categories.map((category) => (
+                    <Link
+                      key={category.slug}
+                      href={`/catalog?category=${category.slug}`}
+                      onClick={() => setIsDesktopCollectionOpen(false)}
+                      className="group/item flex items-center justify-between border-b border-olive/20 py-4 font-serif text-xl transition-colors hover:text-[#754C15]"
+                    >
+                      {category.label}
+                      <span aria-hidden="true" className="translate-x-0 text-base opacity-45 transition-all group-hover/item:translate-x-1 group-hover/item:opacity-100">→</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+          <Link href="/contact" className="transition-opacity hover:opacity-65">Contact</Link>
+        </div>
+
+        <button
+          type="button"
+          aria-expanded={isCollectionOpen}
+          aria-controls="mobile-collection-menu"
+          onClick={() => setIsCollectionOpen((open) => !open)}
+          className="flex items-center gap-1 py-2 text-xs uppercase tracking-[0.12em] lg:hidden"
+        >
+          Collection
+          <svg viewBox="0 0 12 12" fill="none" className={`h-3 w-3 transition-transform ${isCollectionOpen ? "rotate-180" : ""}`}>
+            <path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        <Link href="/cart" aria-label={`Cart with ${itemCount} items`} className="relative p-1 transition-opacity hover:opacity-65">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 sm:h-6 sm:w-6">
+            <path d="M3 4h2l2.2 10.2a2 2 0 002 1.6h7.9a2 2 0 001.9-1.4L21 8H7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="10" cy="20" r="1" fill="currentColor" stroke="none" />
+            <circle cx="18" cy="20" r="1" fill="currentColor" stroke="none" />
+          </svg>
+          {itemCount > 0 && (
+            <span className="absolute -right-1.5 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#9A6724] px-1 text-[10px] font-semibold leading-none text-paper">
+              {itemCount > 99 ? "99+" : itemCount}
+            </span>
+          )}
+        </Link>
+
+        <Link href="/account" aria-label="Profile" className="p-1 transition-opacity hover:opacity-65">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 sm:h-6 sm:w-6">
+            <circle cx="12" cy="8" r="3.5" strokeWidth="1.5" />
+            <path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        </Link>
       </nav>
+
+      <div
+        id="mobile-collection-menu"
+        className={`absolute inset-x-0 top-full border-t border-olive/10 bg-paper px-6 text-olive shadow-xl transition-all duration-200 lg:hidden ${isCollectionOpen ? "visible translate-y-0 opacity-100" : "invisible -translate-y-2 opacity-0"}`}
+      >
+        <div className="flex items-center justify-between border-b border-olive/15 py-4">
+          <p className="font-serif text-xl">Collections</p>
+          <Link href="/catalog" onClick={() => setIsCollectionOpen(false)} className="font-semibold text-xs uppercase tracking-[0.14em] text-[#754C15]">
+            View all
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-x-7 py-2">
+          {categories.map((category) => (
+            <Link
+              key={category.slug}
+              href={`/catalog?category=${category.slug}`}
+              onClick={() => setIsCollectionOpen(false)}
+              className="border-b border-olive/10 py-3 font-serif text-lg"
+            >
+              {category.label}
+            </Link>
+          ))}
+        </div>
+      </div>
     </header>
   );
 }

@@ -25,6 +25,11 @@ body {
   color: var(--color-foreground);
 }
 
+.post-hero,
+.post-hero :where(h1, h2, h3, h4, h5, h6, p, a, span, button, input) {
+  font-family: var(--font-cormorant), serif;
+}
+
 h1,
 h2,
 h3,
@@ -32,4 +37,24 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), serif;
+}
+
+@keyframes category-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.category-track {
+  animation: category-slide 42s linear infinite;
+}
+
+.category-carousel:hover .category-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .category-track {
+    animation: none;
+  }
 }
