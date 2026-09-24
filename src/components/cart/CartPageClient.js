@@ -92,18 +92,20 @@ export default function CartPageClient() {
         </div>
       </div>
 
-      <aside className="sticky top-32 bg-olive p-7 text-paper sm:p-9">
-        <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#F0CB7F]">Order summary</p>
-        <div className="mt-7 space-y-4 border-b border-paper/20 pb-7 text-lg">
-          <div className="flex justify-between gap-5"><span className="font-medium text-paper">Subtotal</span><span className="font-semibold">{formatPrice(subtotal)}</span></div>
-          <div className="flex justify-between gap-5"><span className="font-medium text-paper">Delivery</span><span className="font-medium">Calculated later</span></div>
+      <aside className="sticky top-32 overflow-hidden bg-[#E7DCC8] p-7 text-[#20250F] shadow-[0_18px_45px_rgba(74,78,42,0.12)] sm:p-9">
+        <div className="border-b border-olive/30 pb-6">
+          <h2 className="text-2xl font-bold uppercase tracking-[0.12em] text-[#20250F] sm:text-3xl">Order summary</h2>
         </div>
-        <div className="flex justify-between gap-5 py-7 text-2xl font-semibold"><span>Total</span><span>{formatPrice(subtotal)}</span></div>
-        <p className="text-base font-medium leading-relaxed text-paper/90">Taxes and delivery charges are confirmed at checkout.</p>
-        <button type="button" disabled className="mt-7 w-full cursor-not-allowed bg-[#E2BE75] px-6 py-4 text-lg font-semibold text-olive">
-          Checkout coming soon
-        </button>
-        <Link href="/catalog" className="mt-5 block border border-gold/70 bg-olive px-5 py-3 text-center text-sm font-semibold uppercase tracking-[0.14em] text-gold transition-colors hover:bg-gold hover:text-olive">
+        <div className="space-y-5 border-b border-olive/30 py-6 text-lg">
+          <div className="flex justify-between gap-5"><span className="font-bold text-[#20250F]">Subtotal</span><span className="font-bold text-[#68420D]">{formatPrice(subtotal)}</span></div>
+          <div className="flex justify-between gap-5"><span className="font-bold text-[#20250F]">Delivery</span><span className="font-semibold text-[#303818]">Calculated later</span></div>
+        </div>
+        <div className="flex justify-between gap-5 py-6 text-2xl font-bold text-[#20250F]"><span>Total</span><span className="text-[#68420D]">{formatPrice(subtotal)}</span></div>
+        <p className="text-base font-semibold leading-relaxed text-[#303818]">Taxes and delivery charges are confirmed at checkout.</p>
+        <Link href="/checkout" className="mt-6 block w-full bg-olive px-6 py-4 text-center font-sans text-sm font-bold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-[#303818]">
+          Continue to details
+        </Link>
+        <Link href="/catalog" className="mt-3 block border border-olive bg-transparent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.14em] text-olive transition-colors hover:bg-paper/70">
           Continue shopping
         </Link>
       </aside>

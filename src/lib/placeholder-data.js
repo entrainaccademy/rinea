@@ -40,7 +40,7 @@ export const featuredProducts = [
     name: "Meadow Charm Necklace",
     price: "₹1,499",
     material: "18k gold plated",
-    image: "/Product/Charm Necklace.jpg",
+    image: "/Product/meadow-charm-necklace.jpg",
     category: "necklaces",
     description: "A polished floral charm necklace that layers beautifully or stands gracefully on its own.",
     badges: ["Limited"],
