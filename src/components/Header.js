@@ -147,12 +147,12 @@ export default function Header() {
           )}
         </Link>
 
-        <Link href="/account" aria-label="Profile" className="hidden p-1 transition-opacity hover:opacity-65 lg:block">
+        <span aria-label="Profile unavailable" className="hidden cursor-default p-1 opacity-60 lg:block">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 sm:h-6 sm:w-6">
             <circle cx="12" cy="8" r="3.5" strokeWidth="1.5" />
             <path d="M5 20c.8-4 3.1-6 7-6s6.2 2 7 6" strokeWidth="1.5" strokeLinecap="round" />
           </svg>
-        </Link>
+        </span>
 
         <button
           type="button"
