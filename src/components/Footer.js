@@ -4,7 +4,6 @@ const columns = [
   {
     heading: "Shop",
     links: [
-      { label: "New arrivals", href: "/catalog" },
       { label: "Rings", href: "/catalog?category=rings" },
       { label: "Necklaces", href: "/catalog?category=necklaces" },
       { label: "Earrings", href: "/catalog?category=earrings" },
@@ -24,10 +23,10 @@ const columns = [
   {
     heading: "Rinea",
     links: [
-      { label: "Our materials", href: "/materials" },
+      { label: "Our materials", href: "/#materials" },
       { label: "Why anti-tarnish", href: "/why-anti-tarnish" },
       { label: "Contact", href: "/contact" },
-      { label: "Instagram", href: "/instagram" },
+      { label: "Instagram", href: "https://www.instagram.com/rinea__com/" },
       { label: "Pinterest", href: "/pinterest" },
     ],
   },
@@ -71,6 +70,8 @@ export default function Footer() {
                     <li key={link.label}>
                       <Link
                         href={link.href}
+                        target={link.href.startsWith("http") ? "_blank" : undefined}
+                        rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                         className="text-sm text-paper/80 transition-colors hover:text-gold sm:text-lg"
                       >
                         {link.label}

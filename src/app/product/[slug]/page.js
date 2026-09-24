@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import AddToCartButton from "@/components/cart/AddToCartButton";
+import ProductCard from "@/components/ProductCard";
 import { products } from "@/lib/placeholder-data";
 
 const qualities = ["Anti-tarnish", "Waterproof", "Hypoallergenic", "Made for daily wear"];
@@ -16,6 +17,14 @@ export default async function ProductPage({ params }) {
   const product = products.find((item) => item.slug === slug);
 
   if (!product) notFound();
+
+  const sameCategoryProducts = products.filter(
+    (item) => item.slug !== product.slug && item.category === product.category,
+  );
+  const otherProducts = products.filter(
+    (item) => item.slug !== product.slug && item.category !== product.category,
+  );
+  const relatedProducts = [...sameCategoryProducts, ...otherProducts].slice(0, 4);
 
   return (
     <main className="post-hero min-h-screen bg-paper pt-20 sm:pt-28">
@@ -83,6 +92,24 @@ export default async function ProductPage({ params }) {
                 Continue shopping
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#EFE8DC] px-4 py-14 sm:px-10 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-9 text-center sm:mb-12">
+            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#754C15]">
+              Complete your edit
+            </p>
+            <h2 className="text-4xl font-semibold text-olive sm:text-5xl">
+              You may also like
+            </h2>
+          </div>
+          <div className="grid grid-cols-2 gap-x-3 gap-y-10 sm:grid-cols-4 sm:gap-x-6">
+            {relatedProducts.map((relatedProduct) => (
+              <ProductCard key={relatedProduct.slug} product={relatedProduct} />
+            ))}
           </div>
         </div>
       </section>

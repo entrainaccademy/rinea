@@ -46,7 +46,7 @@ export const products = [
   {
     slug: "golden-drop-anklet",
     name: "Golden Drop Anklet",
-    price: "₹899",
+    price: "₹350",
     image: "/Product/Anklets.jpg",
     category: "kids",
     description: "A delicate gold anklet finished with softly moving drop charms.",
@@ -54,7 +54,7 @@ export const products = [
   {
     slug: "colour-charm-anklet",
     name: "Colour Charm Anklet",
-    price: "₹949",
+    price: "₹350",
     image: "/Product/Anklets2.jpg",
     category: "kids",
     description: "A fine anklet dotted with playful coloured charms.",
@@ -62,7 +62,7 @@ export const products = [
   {
     slug: "luna-disc-anklet",
     name: "Luna Disc Anklet",
-    price: "₹899",
+    price: "₹350",
     image: "/Product/Anklets3.jpg",
     category: "kids",
     description: "A light chain anklet with polished circular charms.",
@@ -70,15 +70,14 @@ export const products = [
   {
     slug: "tiny-heart-anklet",
     name: "Tiny Heart Anklet",
-    price: "₹949",
+    price: "₹350",
     image: "/Product/Anklets4.jpg",
     category: "kids",
     description: "A graceful everyday anklet with petite heart details.",
   },
-  { slug: "daisy-chain-anklet", name: "Kids Daisy Chain Anklet", price: "₹999", image: "/Product/Anklets5.jpg", category: "kids", description: "A floral kids anklet designed for an easy everyday shine." },
+  { slug: "daisy-chain-anklet", name: "Kids Daisy Chain Anklet", price: "₹350", image: "/Product/Anklets5.jpg", category: "kids", description: "A floral kids anklet designed for an easy everyday shine." },
   { slug: "minimal-charm-bracelets", name: "Minimal Charm Bracelets", price: "₹1,199", image: "/Product/Bracelet.jpg", category: "bracelets", description: "Four slim charm bracelets for wearing alone or together." },
   { slug: "triple-heart-necklace", name: "Triple Heart Necklace", price: "₹1,499", image: "/Product/Charm Necklace  2.jpg", category: "necklaces", description: "A fine chain necklace set with three crystal heart charms." },
-  { slug: "crystal-heart-necklace", name: "Crystal Heart Necklace", price: "₹1,399", image: "/Product/Charm Necklace2.jpg", category: "necklaces", description: "A polished heart necklace with a bright crystal centre." },
   { slug: "sunlit-frame-necklace", name: "Sunlit Frame Necklace", price: "₹1,299", image: "/Product/Charm Necklace3.jpg", category: "necklaces", description: "A refined framed pendant on a delicate gold chain." },
   { slug: "ivory-frame-necklace", name: "Ivory Frame Necklace", price: "₹1,299", image: "/Product/Charm Necklace4.jpg", category: "necklaces", description: "An ivory centre pendant framed with fine golden detail." },
   { slug: "garden-drop-necklace", name: "Garden Drop Necklace", price: "₹1,499", image: "/Product/Charm Necklace5.jpg", category: "necklaces", description: "A delicate botanical necklace with softly spaced charms." },
@@ -129,6 +128,6 @@ export const categories = [
   { slug: "hip-chains", label: "Hip Chains", image: "/images/hipchain_category.png", alt: "Layered gold hip chains" },
   { slug: "bracelets", label: "Bracelets", image: "/images/bracelet_category.png", alt: "Gold chain and tennis bracelets" },
   { slug: "watches", label: "Watches", image: "/images/watches_category.png", alt: "Gold and leather watches" },
-  { slug: "anklets", label: "Anklets", image: "/Product/img2.jpg", alt: "Gold anklet", showOnHome: false },
+  { slug: "anklets", label: "Anklets", image: "/images/anklets_category.png", alt: "Collection of gold anklets" },
   { slug: "kids", label: "Kids Jewellery", image: "/Product/Anklets.jpg", alt: "Kids gold anklet", showOnHome: false },
 ];

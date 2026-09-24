@@ -92,7 +92,7 @@ export default function Header() {
               }
             }}
           >
-            <Link href="/catalog" className="flex items-center gap-1.5 transition-opacity hover:opacity-65">
+            <Link href="/#shop-by-category" className="flex items-center gap-1.5 transition-opacity hover:opacity-65">
               Collection
               <svg viewBox="0 0 12 12" fill="none" className={`h-3 w-3 transition-transform ${isDesktopCollectionOpen ? "rotate-180" : ""}`}>
                 <path d="m2 4 4 4 4-4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
