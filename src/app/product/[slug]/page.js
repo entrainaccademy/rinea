@@ -18,8 +18,8 @@ export default async function ProductPage({ params }) {
   if (!product) notFound();
 
   return (
-    <main className="post-hero min-h-screen bg-paper pt-24 sm:pt-28">
-      <section className="px-4 py-10 sm:px-10 sm:py-24">
+    <main className="post-hero min-h-screen bg-paper pt-20 sm:pt-28">
+      <section className="px-4 pb-10 pt-4 sm:px-10 sm:py-24">
         <div className="mx-auto grid max-w-6xl overflow-hidden sm:border sm:border-olive/15 sm:bg-[#ebe5d9] lg:grid-cols-2">
           <div className="relative mx-auto aspect-[4/5] w-[88%] overflow-hidden sm:min-h-[620px] sm:w-full lg:aspect-auto lg:min-h-[720px]">
             <Image
@@ -54,6 +54,15 @@ export default async function ProductPage({ params }) {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-olive/85 sm:mt-8 sm:text-xl">
               {product.description}
             </p>
+
+            <div className="mt-5 flex items-center gap-3 border-y border-olive/15 py-3 text-base font-semibold text-olive sm:mt-6 sm:text-lg">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="h-5 w-5 shrink-0 text-[#79531D]" aria-hidden="true">
+                <path d="M3 7h11v10H3zM14 10h3l4 4v3h-7z" strokeWidth="1.4" strokeLinejoin="round" />
+                <circle cx="7" cy="19" r="1.5" strokeWidth="1.4" />
+                <circle cx="18" cy="19" r="1.5" strokeWidth="1.4" />
+              </svg>
+              <span>Estimated delivery: 2–5 days</span>
+            </div>
 
             <ul className="mt-7 grid grid-cols-2 border-l border-t border-olive/15 sm:mt-10">
               {qualities.map((quality) => (
