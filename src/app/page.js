@@ -3,6 +3,7 @@ import FeaturedProducts from "@/components/home/FeaturedProducts";
 import CategoryTiles from "@/components/home/CategoryTiles";
 import WhyAntiTarnish from "@/components/home/WhyAntiTarnish";
 import Testimonials from "@/components/home/Testimonials";
+import FaqSection from "@/components/home/FaqSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <FeaturedProducts />
         <WhyAntiTarnish />
         <Testimonials />
+        <FaqSection />
         <Footer />
       </div>
     </main>

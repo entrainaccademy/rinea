@@ -226,7 +226,7 @@ export default function Header() {
                 View all
               </Link>
             </div>
-            <div className="grid grid-cols-3 border-b border-olive/15 py-2">
+            <div className="divide-y divide-olive/10 border-b border-olive/15 py-1">
               {categories.map((category) => (
                 <Link
                   key={category.slug}
@@ -235,9 +235,10 @@ export default function Header() {
                     setIsCollectionOpen(false);
                     setIsMobileCollectionOpen(false);
                   }}
-                  className="flex min-h-16 items-center justify-center border-b border-r border-olive/10 px-2 py-3 text-center font-serif text-base leading-tight [&:nth-child(3n)]:border-r-0"
+                  className="flex items-center justify-between py-3.5 font-serif text-lg leading-tight"
                 >
-                  {category.label}
+                  <span>{category.label}</span>
+                  <span aria-hidden="true" className="text-base text-[#754C15]">→</span>
                 </Link>
               ))}
             </div>

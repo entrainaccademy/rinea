@@ -1,3 +1,19 @@
+const categoryPrices = {
+  earrings: "₹399",
+  rings: "₹399",
+  anklets: "₹399",
+  kids: "₹350",
+  bangles: "₹499",
+  bracelets: "₹499",
+  necklaces: "₹499",
+  "hip-chains": "₹499",
+};
+
+const applyCategoryPrice = (product) => ({
+  ...product,
+  price: categoryPrices[product.category] || product.price,
+});
+
 export const featuredProducts = [
   {
     slug: "celeste-bow-earrings",
@@ -39,7 +55,7 @@ export const featuredProducts = [
     description: "A refined emerald dial watch with a jewellery-inspired bracelet silhouette.",
     badges: ["Bestseller"],
   },
-];
+].map(applyCategoryPrice);
 
 export const products = [
   ...featuredProducts,
@@ -118,7 +134,7 @@ export const products = [
   { slug: "starlight-crystal-necklace", name: "Starlight Crystal Necklace", price: "₹1,349", image: "/Product/WhatsApp Image 2026-09-23 at 16.34.58.jpeg", category: "necklaces", description: "A bright star inspired crystal pendant for effortless daily shine." },
   { slug: "pearl-halo-necklace", name: "Pearl Halo Necklace", price: "₹1,499", image: "/Product/WhatsApp Image 2026-09-23 at 16.34.59 (1).jpeg", category: "necklaces", description: "A smooth pearl pendant framed by a sculptural golden halo." },
   { slug: "satin-bow-necklace", name: "Satin Bow Necklace", price: "₹1,499", image: "/Product/WhatsApp Image 2026-09-23 at 16.34.59.jpeg", category: "necklaces", description: "A fluid statement chain finished with an elegant sculpted bow." },
-];
+].map(applyCategoryPrice);
 
 export const categories = [
   { slug: "earrings", label: "Earrings", image: "/images/earring_category.jpg", alt: "Gold earrings" },
