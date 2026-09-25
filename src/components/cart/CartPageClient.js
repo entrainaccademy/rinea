@@ -104,9 +104,6 @@ export default function CartPageClient({ products }) {
         <Link href="/checkout" className="mt-6 block w-full bg-olive px-6 py-4 text-center font-sans text-sm font-bold uppercase tracking-[0.12em] text-paper transition-colors hover:bg-[#303818]">
           Continue to details
         </Link>
-        <Link href="/catalog" className="mt-3 block border border-olive bg-transparent px-5 py-3 text-center text-sm font-bold uppercase tracking-[0.14em] text-olive transition-colors hover:bg-paper/70">
-          Continue shopping
-        </Link>
       </aside>
     </div>
   );
