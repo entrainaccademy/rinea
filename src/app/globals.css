@@ -30,6 +30,12 @@ body {
   font-family: var(--font-cormorant), serif;
 }
 
+.post-hero input,
+.post-hero .formal-number {
+  font-family: var(--font-inter), sans-serif;
+  font-variant-numeric: tabular-nums;
+}
+
 h1,
 h2,
 h3,

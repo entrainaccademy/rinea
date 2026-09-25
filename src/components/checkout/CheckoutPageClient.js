@@ -88,15 +88,15 @@ export default function CheckoutPageClient({ products }) {
     <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
       <div>
         <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#653700]">Delivery details</p>
-        <h1 className="mt-2 text-2xl font-bold text-[#242B12] sm:text-5xl">Where should we deliver?</h1>
-        <p className="mt-2 max-w-2xl text-sm font-bold leading-relaxed text-[#303618] sm:mt-3 sm:text-lg">
+        <h1 className="mt-1.5 text-[1.65rem] font-bold leading-tight text-[#242B12] sm:mt-2 sm:text-5xl">Where should we deliver?</h1>
+        <p className="mt-2 max-w-2xl text-[13px] font-bold leading-6 text-[#303618] sm:mt-3 sm:text-lg sm:leading-relaxed">
           Enter your address below. Your details and order will be prepared as a WhatsApp message.
         </p>
 
-        <form onSubmit={continueOnWhatsApp} className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-5">
+        <form onSubmit={continueOnWhatsApp} className="mt-5 grid grid-cols-2 gap-x-3 gap-y-2.5 sm:mt-8 sm:gap-5">
           {fields.map((field) => (
-            <label key={field.name} className={field.name === "landmark" || field.name === "houseName" ? "sm:col-span-2" : ""}>
-              <span className="mb-1.5 block text-xs font-bold uppercase tracking-[0.1em] text-[#3A2A12] sm:mb-2 sm:text-sm">{field.label}</span>
+            <label key={field.name} className={["customerName", "houseName", "landmark"].includes(field.name) ? "col-span-2" : ""}>
+              <span className="mb-1 block text-[11px] font-bold uppercase tracking-[0.1em] text-[#3A2A12] sm:mb-2 sm:text-sm">{field.label}</span>
               <input
                 required
                 name={field.name}
@@ -105,12 +105,12 @@ export default function CheckoutPageClient({ products }) {
                 inputMode={field.inputMode}
                 pattern={field.pattern}
                 maxLength={field.maxLength}
-                className="w-full border border-[#77795B] bg-[#FAF8F2] px-3 py-2 text-base font-bold text-[#20250F] outline-none transition-colors focus:border-[#6B3F09] focus:ring-1 focus:ring-[#6B3F09]/25 sm:px-4 sm:py-3 sm:text-lg"
+                className="h-10 w-full border border-[#77795B] bg-[#FAF8F2] px-3 text-sm font-semibold text-[#20250F] outline-none transition-colors focus:border-[#6B3F09] focus:ring-1 focus:ring-[#6B3F09]/25 sm:h-12 sm:px-4 sm:text-base"
               />
             </label>
           ))}
 
-          <button type="submit" className="mt-1 bg-gold px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-[#1F260F] transition-colors hover:bg-olive hover:text-paper sm:col-span-2 sm:mt-2 sm:px-6 sm:py-4 sm:text-base">
+          <button type="submit" className="col-span-2 mt-2 bg-gold px-5 py-3 text-xs font-bold uppercase tracking-[0.1em] text-[#1F260F] transition-colors hover:bg-olive hover:text-paper sm:px-6 sm:py-4 sm:text-base">
             Continue on WhatsApp
           </button>
         </form>
@@ -149,10 +149,10 @@ export default function CheckoutPageClient({ products }) {
                 </div>
                 <div className="min-w-0">
                   <p className="text-base font-bold leading-tight text-[#20250F] sm:text-lg">{product.name}</p>
-                  <p className="mt-1 text-xs font-bold text-[#434728] sm:text-sm">Quantity: {product.quantity}</p>
+                  <p className="mt-1 text-xs font-bold text-[#434728] sm:text-sm">Quantity: <span className="formal-number">{product.quantity}</span></p>
                 </div>
               </div>
-              <p className="shrink-0 text-base font-bold text-[#653700] sm:text-lg">
+              <p className="formal-number shrink-0 text-base font-bold text-[#653700] sm:text-lg">
                 {formatPrice(priceAsNumber(product.price) * product.quantity)}
               </p>
             </li>
@@ -161,7 +161,7 @@ export default function CheckoutPageClient({ products }) {
 
         <div className="-mx-2 flex justify-between border-t border-[#8D7A53]/35 bg-gold/20 px-2 pb-2 pt-4 text-lg font-bold text-[#20250F] sm:pt-5 sm:text-xl">
           <span>Subtotal</span>
-          <span>{formatPrice(subtotal)}</span>
+          <span className="formal-number">{formatPrice(subtotal)}</span>
         </div>
         </div>
       </aside>
