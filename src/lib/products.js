@@ -64,15 +64,9 @@ export async function getProducts() {
       ? payload.result.map(normalizeSanityProduct)
       : [];
 
-    const productsBySlug = new Map(
-      fallbackProducts.map((product) => [product.slug, product]),
-    );
-
-    sanityProducts.forEach((product) => productsBySlug.set(product.slug, product));
-    return Array.from(productsBySlug.values());
+    return sanityProducts;
   } catch (error) {
     console.error("Unable to load Sanity products. Using the local catalogue.", error);
     return fallbackProducts;
   }
 }
-
