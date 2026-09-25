@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
-import { products } from "@/lib/placeholder-data";
 
 const RINEA_WHATSAPP_NUMBER = "919539637133";
 
@@ -29,7 +28,7 @@ const fields = [
   { name: "contactNumber", label: "Contact number", autoComplete: "tel", inputMode: "tel", pattern: "[0-9]{10}", maxLength: 10 },
 ];
 
-export default function CheckoutPageClient() {
+export default function CheckoutPageClient({ products }) {
   const { items, isReady } = useCart();
   const cartProducts = items.flatMap((item) => {
     const product = products.find((candidate) => candidate.slug === item.slug);

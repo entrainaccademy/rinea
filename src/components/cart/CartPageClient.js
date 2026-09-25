@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCart } from "@/components/cart/CartProvider";
-import { products } from "@/lib/placeholder-data";
 
 function priceAsNumber(price) {
   return Number(price.replace(/[^0-9]/g, ""));
@@ -17,7 +16,7 @@ function formatPrice(value) {
   }).format(value);
 }
 
-export default function CartPageClient() {
+export default function CartPageClient({ products }) {
   const { items, isReady, itemCount, updateQuantity, removeItem } = useCart();
   const cartProducts = items.flatMap((item) => {
     const product = products.find((candidate) => candidate.slug === item.slug);

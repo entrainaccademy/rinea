@@ -141,7 +141,7 @@ export const categories = [
   { slug: "bangles", label: "Bangles", image: "/images/bangle_category.jpg", alt: "Gold bangles" },
   { slug: "rings", label: "Rings", image: "/images/ring_category.png", alt: "Collection of gold rings" },
   { slug: "necklaces", label: "Necklaces", image: "/images/necklace_category.png", alt: "Layered gold necklaces" },
-  { slug: "hip-chains", label: "Hip Chains", image: "/images/hipchain_category.png", alt: "Layered gold hip chains" },
+  { slug: "sets-and-combos", label: "Sets & Combos", image: "/images/hipchain_category.png", alt: "Matching jewellery set" },
   { slug: "bracelets", label: "Bracelets", image: "/images/bracelet_category.png", alt: "Gold chain and tennis bracelets" },
   { slug: "watches", label: "Watches", image: "/images/watches_category.png", alt: "Gold and leather watches" },
   { slug: "anklets", label: "Anklets", image: "/images/anklets_category.png", alt: "Collection of gold anklets" },

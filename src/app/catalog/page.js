@@ -1,7 +1,8 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
-import { categories, products } from "@/lib/placeholder-data";
+import { categories } from "@/lib/placeholder-data";
+import { getProducts } from "@/lib/products";
 
 export const metadata = {
   title: "Collection | Rinea",
@@ -9,6 +10,7 @@ export const metadata = {
 };
 
 export default async function CatalogPage({ searchParams }) {
+  const products = await getProducts();
   const { category } = await searchParams;
   const activeCategory = typeof category === "string" ? category : "all";
   const visibleProducts = activeCategory === "all"

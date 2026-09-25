@@ -1,7 +1,13 @@
 import ProductCard from "@/components/ProductCard";
-import { featuredProducts } from "@/lib/placeholder-data";
+import { featuredProducts as fallbackFeaturedProducts } from "@/lib/placeholder-data";
+import { getProducts } from "@/lib/products";
 
-export default function FeaturedProducts() {
+export default async function FeaturedProducts() {
+  const products = await getProducts();
+  const sanityFeaturedProducts = products.filter((product) => product.isFeatured);
+  const featuredProducts = sanityFeaturedProducts.length
+    ? sanityFeaturedProducts.slice(0, 4)
+    : fallbackFeaturedProducts;
   return (
     <section className="flex flex-col gap-12 bg-paper px-4 py-24 sm:px-10 sm:py-28">
       <div className="text-center">

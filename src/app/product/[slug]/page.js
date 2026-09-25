@@ -4,16 +4,18 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import AddToCartButton from "@/components/cart/AddToCartButton";
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/lib/placeholder-data";
+import { products as fallbackProducts } from "@/lib/placeholder-data";
+import { getProducts } from "@/lib/products";
 
 const qualities = ["Anti-tarnish", "Waterproof", "Hypoallergenic", "Made for daily wear"];
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return fallbackProducts.map((product) => ({ slug: product.slug }));
 }
 
 export default async function ProductPage({ params }) {
   const { slug } = await params;
+  const products = await getProducts();
   const product = products.find((item) => item.slug === slug);
 
   if (!product) notFound();
